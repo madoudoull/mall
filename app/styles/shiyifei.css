@@ -1,0 +1,36 @@
+*{margin:0;padding:0;font-family:黑体;text-decoration: none;}
+ul,li{list-style: none;}
+body{width:100%;height: 100%;}
+.zong{width:100%;height: 100%;}
+
+.s_top{width:100%;height:2rem;background:#222222;color:#9d9d9d;font-size:0.7rem;line-height:2rem;border-bottom:0.025rem solid #000;z-index: 2;position:fixed;top:0;}
+.s_top a{color:#fff;font-size:0.7rem;margin-left:2rem;}
+.s_top a:hover{color:#fff;text-decoration: none;}
+.s_top span{margin-left:0.1rem;}
+#s_nav{width:6rem;height:100%;background:#343434;border-radius:0 0  0.3rem 0;position:fixed;top:1.9rem;left:-6rem;transition: all 0.5s linear;background:rgba(51,51,51,0.95);z-index: 2;}
+#s_touxiang{width:3rem;height:3rem ;background:green;margin:1.5rem 0 0 1.5rem;border-radius:50%;}
+#s_touxiang img{width:3rem;height:3rem ;border-radius:50%;}
+#s_nav ul{margin-top:0.5rem;}
+#s_nav ul li{width:6rem;height:1.7rem;border-bottom:0.025rem solid #474646;color:#9d9d9d;text-align: center;line-height: 1.7rem;font-size:0.5rem;}
+.s_active{color:#fff;background:#252525;}
+#s_center{width:100%;height:100%;margin-top:3.5rem;position: relative;z-index: 1;}
+#s_center input{width:100%;}
+#s_input{width:13rem;margin:0 auto;position: relative;}
+#s_input input{width:100%;height:1.5rem;border-radius: 0.3rem;outline: none;border:0.05rem solid #ddd;position: relative;}
+#s_box{width:13rem;border:0px solid #000;margin:0 auto;margin-top:1.5rem;-display:none;margin-bottom:4rem;}
+#s_fen{width:10rem;margin-left:5.6rem;margin-top: -2rem;}
+#s_shou{width:20%;height: 1.49rem;border:0.05rem solid #ddd;font-size:0.5rem;outline: none;border-radius: 0.3rem;float:right;position: absolute;top: 0rem;right:0;}
+#s_tubiao{display:none;width:80%;border:0px solid #000;margin:0 auto;margin-top:1.5rem;position: absolute;top:1.5rem;left:10%;}
+.s_p1{border:0px solid #000;display: block;width:16em;height:auto;overflow: hidden;}
+.s_span{color:#fff;border:0px solid #000;width:3.2rem;height:1.4rem;margin-right:0.3rem;float:right;display:inline-block;border-radius: 0.2rem;text-align: center;line-height:1.4rem;font-size:0.4rem;}
+.s_button{margin-left:5.35rem;border-radius: 0.2rem;border:0;background:green;color:#fff;}
+#s_but{width:2rem;height:0.9rem;border:0px solid #000;float: right;margin-right:0.3rem;border-radius: 0.1rem;text-align: center;line-height: 0.9rem;font-size:0.5rem;background:green;color:#fff;}
+.panel-title p{border:0px solid #000;width:7.1rem;display:inline-block;word-wrap:break-word;}
+.red{background:red;}
+.green{background:#337ab7;}
+.blue{background:blue;}
+
+
+
+
+

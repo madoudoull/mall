@@ -1,0 +1,121 @@
+
+    <div class="s_top">
+			<span class="glyphicon glyphicon-th-list" id="s_span"></span><a>BugCenter v0.3 (UI版)</a>
+	 </div>
+
+    <!--左侧导航-->
+    <div id="s_nav">
+    <div id="s_touxiang"><img src="images/yi.jpg"></div>
+    	<ul id="s_ul">
+    		<li class="s_active">Home</li>
+    		<li>增加</li>
+    		<li>报表</li>
+    		<li ng-click="Sout()">退出</li>
+    	</ul>
+    </div>
+    <!--左侧导航结束-->
+    <!--主体-->
+    <div id="s_center">
+       <div id="s_input"><input type="text" name="" value="" ng-model='aaaa'/>
+                         <button id="s_shou" class="glyphicon glyphicon-search"></button>
+       </div>
+    	
+    	<!--手风琴-->
+    	<div id="s_box">
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    		  <!-- <shoufenqing  data="Sdata"></shoufenqing> -->
+          <div class="panel panel-default" ng-repeat="x in Sdata  | filter:aaaa |f:s:size">
+            <div class="panel-heading" role="tab" id="heading{{$index+1}}">
+            <h4 class="panel-title">
+            <p class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse{{$index+1}}" aria-expanded="false" aria-controls="collapse{{$index+1}}">
+          {{x.summary}}({{x.frequency}})</p>
+            <span class="s_span" ng-class="{red:x.importance=='重要',green:x.importance=='中等',blue:x.importance=='一般'}">{{x.importance}}</span>
+            </h4>
+            </div>
+          <div id="collapse{{$index+1}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{$index+1}}"><div class="panel-body"><div class="s_p1"><x ng-bind-html="x.description|MyHtml"></x></div><span>{{x.date}}</span><br>发布人：<span>{{x.from}}</span><button id="s_but" ng-disabled="syf" ng-click="fn(x)">{{x.status}}</button></div></div></div>
+        </div>
+    	</div>
+  <!--手风琴结束-->
+  
+  <!-- 图标 -->
+  <div id="s_tubiao">
+        <canvas class="chart chart-bar" chart-data="data" chart-labels="labels" 
+    chart-series="series" chart-click="onClick"></canvas> 
+  </div>
+  <!-- 图标结束 -->
+ 
+ <!-- 分页 -->
+  <div id="s_fen">
+     <nav>
+  <div id='butt'>
+     <button ng-click='Fn()' ng-if="Lns">上一页</button>
+      <button ng-click='Fn1()' ng-if="Lns1">下一页</button>
+
+    </div>
+
+</nav>
+  </div>
+ 
+  <!-- 分页结束 --> 
+    </div>
+
+    <script>
+      document.documentElement.style.fontSize = innerWidth / 16 + 'px'
+  onresize = function() {
+    document.documentElement.style.fontSize = innerWidth / 16 + 'px'
+  }
+      var oul=document.getElementById('s_ul');
+        var ali=oul.getElementsByTagName('li');
+
+        for(var i=0;i<ali.length;i++){
+          ali[i].onclick=function(){
+
+          for(var i=0;i<ali.length;i++){
+            ali[i].className=""
+          }
+          this.className="s_active"
+        }
+        }
+        
+        s_span.onclick=function(){
+          if(s_nav.style.left=="0rem"){
+            s_span.style.color="#9d9d9d";
+            
+            s_nav.style.left="-8rem";
+          }else{
+            s_span.style.color="#fff";
+            s_nav.style.left="0rem";
+            
+          }         
+        }
+      s_center.onclick=function(){
+       s_nav.style.left="-8rem";
+      }
+      ali[2].onclick=function(){
+        s_tubiao.style.display="block";
+        s_box.style.display="none";
+        s_nav.style.left="-6rem";
+        s_fen.style.display="none";
+        for(var i=0;i<ali.length;i++){
+            ali[i].className=""
+          }
+        this.className="s_active"
+      }
+      ali[0].onclick=function(){
+        s_tubiao.style.display="none";
+        s_box.style.display="block";
+        s_nav.style.left="-6rem";
+         s_fen.style.display="block";
+        for(var i=0;i<ali.length;i++){
+            ali[i].className=""
+          }
+         this.className="s_active"
+      }
+
+    </script>
+    
+    
+   
+ 
+
+

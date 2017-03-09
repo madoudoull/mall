@@ -1,0 +1,127 @@
+body{
+	padding-bottom: 1.8rem;
+}
+.b_box{
+	width: 100%;
+	height: 2rem;
+	background: #000;
+	position:fixed;
+	top:0;
+	left:0;
+}
+.b_box a{
+	margin-top: 0.6rem;
+	margin-right: 0.3rem;
+	font-size: 0.75rem;
+	float:right;
+	color: #fff;
+}
+.b_box p{
+	font-size: 0.75rem;
+	line-height: 2rem;
+	color: white;
+	float:left;
+	margin-left: 0.8rem;
+}
+#oUl{
+	height: 2rem;
+	width: 100%;
+	position: fixed;
+	bottom:0;
+	margin-bottom: 0;
+}
+#oUl li{
+	width: 33.333333%;
+	height: 3rem;
+	float:left;
+	text-align: center;
+	line-height: 2rem;
+	color: white;
+	background: #000;
+	font-size:.75rem;
+}
+.Search1{
+	width: 100%;
+	height: 2rem;
+	-position: relative;
+	padding-top: 0.3rem;
+	position:fixed;
+	top:2rem;
+	left:0;
+}
+.Search1 input{
+	width: 90%;
+	height: 1.5rem;
+	outline: none;
+	border:1px solid #105CB6;
+	border-radius: 1rem;
+	margin:0 auto;
+	display: block;
+	padding-left: 0.3rem;
+	font-size: 0.75rem;
+}
+.Search1 i{
+	font-size: 1rem;
+	position: absolute;
+	right: 1.5rem;
+	top: 0.5rem;
+	color: #105CB6;
+}
+.Center{
+	width: 100%;
+}
+.b_bug{
+	height: 12rem;
+	margin-left: 0.6rem;
+	margin-right: 0.6rem;
+	display: block;
+}
+
+.b_Tubiao{
+	display: none;
+	margin-top:4rem;
+	padding: 0 0.6rem;
+	margin-bottom:1rem;
+}
+.b_Tubiao button{
+	width:90px;
+	height:25px;
+	margin-left:1.9rem;
+}
+
+.red{
+	background: red;
+    width: 2rem;
+    height: 1.2rem;
+    display: inline-block;
+    color: #fff;
+    border-radius:0.2rem;
+    line-height:1.2rem;
+}
+.green{
+	background: green;
+	width: 2rem;
+    height: 1.2rem;
+    display: inline-block;
+    color: #fff;
+    border-radius:0.2rem;
+    line-height:1.2rem;
+}
+.blue{
+	background: blue;
+	width: 2rem;
+    height: 1.2rem;
+    display: inline-block;
+    color: #fff;
+    border-radius:0.2rem;
+    line-height:1.2rem;
+}
+.chart{
+	margin-top:7rem;
+}
+
+
+
+
+
+

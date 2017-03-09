@@ -1,0 +1,323 @@
+<div ng-class="Motai">
+	<div class="Lndh">
+		{{Lntext}}
+	</div>
+</div>
+<div class="Ln-1">
+    <div class="col-sm-12">
+    	<div class="Bugcent">
+    	<b>Bugcenter</b>
+    	v0.0.1
+    	(测试专用)
+    	<a href="javascript:;" class="glyphicon glyphicon-off"  id="Lnt" title="退出登录" ng-click="Outfn()"></a>
+		</div>
+	</div>
+</div>
+<div class="Listleft" id="Listleft">
+	<div>
+		Bug一览：
+	</div>
+	<li class="Listleftli">条形图</li>
+	<li>柱状图</li>
+	<li>饼图</li>
+	<li>雷达图</li>
+</div>
+<div class="canvas" style="display:block">
+	<canvas class="chart-horizontal-bar" chart-data="data" chart-labels="labels" chart-series="series" chart-click="onClick" id="Canvas"></canvas> 
+</div>
+<div class="canvas" style="display:none">
+	<canvas class="chart-bar" chart-data="data" chart-labels="labels" chart-series="series" chart-click="onClick" id="Canvas"></canvas> 
+</div>
+<div class="canvas" style="display:none">
+	<canvas class="chart-pie" chart-data="data" chart-labels="labels" chart-series="series" chart-click="onClick" id="Canvas"></canvas> 
+</div>
+<div class="canvas" style="display:none">
+	<canvas class="chart-radar" chart-data="data" chart-labels="labels" chart-series="series" chart-click="onClick" id="Canvas"></canvas> 
+</div>
+<!-- <div class="Bugxq" ng-repeat="x in userName">
+	<div class="Lnjian">{{x}}</div>
+	<div>
+
+		<div>
+			<p>时间</p><p>状态</p>
+		<div>
+	</div>
+	
+</div> -->
+<div class="Bugxq">
+	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+		  		<div class="panel panel-default">
+    		<div class="panel-heading" role="tab" id="headingOne">
+      			<h4 class="panel-title">
+        			<b class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+         				 已关闭Bug列表({{buglist2.length}})
+        			</b>
+     			 </h4>
+    		</div>
+    		<div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+      			<div class="panel-body">
+					<ul class="Buglist" ng-repeat="x in buglist2">
+					<p>{{$index+1}}、</p>
+						<li>
+							<div class="bugleft">
+								bug来自：
+							</div>
+							<div class="bugright">
+								{{x.to}}
+							</div>
+						</li>
+						<li>
+							<div class="bugleft">
+								bug简介：
+							</div>
+							<div class="bugright">
+								{{x.summary}}
+							</div>
+						</li>
+						<li>
+							<div class="bugleft">
+								bug详情：
+							</div>
+							<div class="bugright">
+							 	<x ng-bind-html="x.description|MyHtml"></x>
+							</div>
+						</li>
+						<li>
+							<div class="bugleft">
+								bug重要性：
+							</div>
+							<div class="bugright">
+								{{x.importance}}
+							</div>
+						</li>
+						<li>
+							<div class="bugleft">
+								Bug时间：
+							</div>
+							<div class="bugright">
+								{{x.date}}
+							</div>
+						</li>
+						<button class="bugbutton" disabled="true">已关闭</button>
+					</ul>
+     			 </div>
+   			 </div>
+  		</div>
+
+  		<div class="panel panel-default">
+    		<div class="panel-heading" role="tab" id="headingThree">
+      			<h4 class="panel-title">
+        			<b class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+         				 未关闭Bug列表({{buglist.length}})
+        			</b>
+     			 </h4>
+    		</div>
+    		<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+      			<div class="panel-body">
+					<ul class="Buglist" ng-repeat="x in buglist">
+					<p>{{$index+1}}、</p>
+						<li>
+							<div class="bugleft">
+								bug来自：
+							</div>
+							<div class="bugright">
+								{{x.to}}
+							</div>
+						</li>
+						<li>
+							<div class="bugleft">
+								bug简介：
+							</div>
+							<div class="bugright">
+								{{x.summary}}
+							</div>
+						</li>
+						<li>
+							<div class="bugleft">
+								bug详情：
+							</div>
+							<div class="bugright">
+								<x ng-bind-html="x.description|MyHtml"></x>
+							</div>
+						</li>
+						<li>
+							<div class="bugleft">
+								bug重要性：
+							</div>
+							<div class="bugright">
+								{{x.importance}}
+							</div>
+						</li>
+						<li>
+							<div class="bugleft">
+								Bug时间：
+							</div>
+							<div class="bugright">
+								{{x.date}}
+							</div>
+						</li>
+						<button ng-class="bugguanbi" ng-click="Fnout(x)" ng-disabled="bugg">{{gunabi}}</button>
+					</ul>
+     			 </div>
+   			 </div>
+  		</div>
+
+
+  		<div class="panel panel-default">
+    		<div class="panel-heading" role="tab" id="headingFour">
+      			<h4 class="panel-title">
+        			<b class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+         				 未处理Bug列表({{buglist1.length}})
+        			</b>
+     			 </h4>
+    		</div>
+    		<div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+      			<div class="panel-body">
+					<ul class="Buglist" ng-repeat="x in buglist1">
+					<p>{{$index+1}}、</p>
+						<li>
+							<div class="bugleft">
+								bug来自：
+							</div>
+							<div class="bugright">
+								{{x.to}}
+							</div>
+						</li>
+						<li>
+							<div class="bugleft">
+								bug简介：
+							</div>
+							<div class="bugright">
+								{{x.summary}}
+							</div>
+						</li>
+						<li>
+							<div class="bugleft">
+								bug详情：
+							</div>
+							<div class="bugright">
+								<x ng-bind-html="x.description|MyHtml"></x>
+							</div>
+						</li>
+						<li>
+							<div class="bugleft">
+								bug重要性：
+							</div>
+							<div class="bugright">
+								{{x.importance}}
+							</div>
+						</li>
+						<li>
+							<div class="bugleft">
+								Bug时间：
+							</div>
+							<div class="bugright">
+								{{x.date}}
+							</div>
+						</li>
+						<button class="bugbutton2" disabled="true">待处理</button>
+					</ul>
+     			 </div>
+   			 </div>
+  		</div>
+	</div>
+</div>
+<div class="glyphicon glyphicon-plus" id="FabuLn" ng-click="FabuLn()"></div>
+<div ng-class="Fabu">
+	<div>
+		<div class="Lhk">
+			<p>错误分类：</p>
+			<label class="radio-inline" ng-repeat="x in dataname">
+			  	<input type="radio" name="inlineRadioOptions" id="inlineRadio{{$index}}" value="option1" ng-click="fn($index)">{{x}}
+			</label >
+		</div>
+	</div>
+	<div class="Lhk">
+		<p>Bug频率：</p>
+		<select class="form-control" ng-model="jinc">
+			<option ng-repeat="x in frequency">{{x}}</option>
+		</select>
+	</div>
+	<div class="Lhk">
+		<p>Bug重要性</p>
+		<select class="form-control" ng-model="imp">
+			<option ng-repeat="x in importance ">{{x}}</option>
+		</select>
+	</div>
+	<div class="Lhk">
+		<p>Bug简介</p>
+		<textarea class="form-control" rows="3" ng-model="Textarea"></textarea>
+	</div>
+	<div class="Lhk">
+		<p>Bug详情：</p>
+		<summernote ng-model='text1' config="options" class="Text"></summernote>
+	</div>
+	<div class="Lhk">
+		<p>指派给：</p>
+		<select class="form-control" ng-model="Users">
+			<option ng-repeat="x in userName">{{x}}</option>
+		</select>
+	</div>
+	<div class="Lhk">
+		<div class="Button-ln">
+			<button type="button" class="btn btn-primary" ng-click="Submit()">发布Bug</button>
+			<button type="button" class="btn btn-primary" ng-click="back()">返回查看</button>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+	var oDiv = document.getElementById("Listleft")
+	var aLi = oDiv.getElementsByTagName("li")
+	var aDiv = document.getElementsByClassName("canvas")
+	for(var i =0;i<aLi.length;i++){
+		aLi[i].index = i
+		aLi[i].onclick = function(){
+			for(var i =0;i<aDiv.length;i++){
+				aDiv[i].style.display = 'none'
+			}
+			aDiv[this.index].style.display="block"
+		}
+	}
+	$(function(){ 
+	    $("#Listleft li").click(function(){
+	    	$(this).addClass("Listleftli").siblings().removeClass("Listleftli")
+	    })
+	})
+</script>

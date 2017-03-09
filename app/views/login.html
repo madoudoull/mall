@@ -1,0 +1,28 @@
+<div ng-class="Motai">
+	<div class="Lndh">
+		{{Lntext}}
+	</div>
+</div>
+<div class="col-sm-12">
+	<div class="Bugcent1">
+	<b>Bugcenter</b>
+	v0.0.1
+	</div>
+	<ng-form accept-charset="utf-8" name="someForm">
+		<div class="form-group has-success">
+		  	<input type="text" name="username" class="form-control" id="inputSuccess1" ng-model="updata.username" placeholder="Account number">
+		</div>
+		<div class="form-group has-success">
+		  	<input type="password" class="form-control" id="inputSuccess1" ng-model="updata.password" placeholder="password">
+		</div>
+		<div class="has-success">
+		  	<div class="checkbox">
+		   	 	<label>
+		      		<input type="checkbox" id="checkboxSuccess" value="option1" ng-checked="check" ng-model="check">
+		     		Remember account
+		    	</label>
+		  </div>
+		</div>
+		<button type="button" class="btn btn-primary btn-md btn-block" ng-click="login()">Login</button>
+	</ng-form>
+</div>

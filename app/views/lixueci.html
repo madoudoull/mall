@@ -1,0 +1,106 @@
+<div class='lxc_head'>
+	<span class='glyphicon glyphicon-th-list' id='s_span'></span>
+	<h2 class="lxc_h2">BugCenter v0.3(前端版)</h2>
+</div>
+<div class='lxc_posi' id='lxc_p'>
+	<a class='lxc_a active' href='javascript:;' id='xq'>BUG列表</a>
+	<a class='lxc_a' href='javascript:;' id='tb'>图表</a>
+	<a class='lxc_a' href='javascript:;' id='tc' ng-click='Quit1()'>退出</a>
+</div>
+<div id="box">
+	<div class='lxc_input'>
+		<input class='lxc_texta' type="text" ng-model='aaa'/>
+	</div>
+	<div id="lxc_hz">
+		<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+			<!--<shoufenqing data="Lxdata1"></shoufenqing>-->
+			<div class="panel panel-default" ng-repeat="x in data1 | filter:aaa | f:s:size"><div class="panel-heading" role="tab" id="heading{{$index+1}}"><h4 class="panel-title"><p class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse{{$index+1}}" aria-expanded="false" aria-controls="collapse{{$index+1}}">{{x.summary}}({{x.frequency}})</p><span class="s_span" ng-class="{red:x.importance=='重要',blue:x.importance=='中等',green:x.importance=='一般'}">{{x.importance}}</span></h4></div><div id="collapse{{$index+1}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{$index+1}}"><div class="panel-body"><div class="s_p1"><x ng-bind-html="x.description|MyHtml"></x></div><span>{{x.date}}</span><br>发布人：<span>{{x.from}}</span><button id="s_but" ng-click="fn(x)" ng-model="lxc">{{x.status}}</button></div></div></div>
+		</div>
+		<script>
+//			var totalPage=Lxdata1.length
+		</script>
+		<div id='butt'>
+			<button ng-click='Fn()' ng-if="Lns">上一页</button>
+			<button ng-click='Fn1()' ng-if="Lns1">下一页</button>
+		</div>
+	</div>
+	<div class='lxc_tb'>
+		<canvas id="pie" class="chart chart-bar"
+  chart-data="data" chart-labels="labels" chart-options="options">
+</canvas> 
+	</div>
+</div>
+<script>
+	document.documentElement.style.fontSize = innerWidth / 16 + 'px'
+	onresize = function() {
+		document.documentElement.style.fontSize = innerWidth / 16 + 'px'
+	}
+
+	var btn = document.getElementsByClassName('lxc_btn')[0]
+	var tex = document.getElementsByClassName('lxc_texta')[0]
+	var anniu = document.getElementsByClassName('glyphicon')[0]
+	var po = document.getElementById('lxc_p')
+	var one = document.getElementById('lxc_hz')
+	var two = document.getElementsByClassName('lxc_tb')[0]
+	var a = document.getElementsByClassName('lxc_a')
+	var box = document.getElementById('box')
+	var butt = document.getElementsByClassName('butt')
+	var sett = document.getElementsByClassName('settled')
+
+	btn.onclick = function() {
+		btn.style.transition = 'all 2s'
+		btn.style.transform = 'scale(0.7,0.7) translateX(7rem)'
+		btn.style.position = 'absolute'
+		tex.style.display = 'block'
+		tex.style.position = 'absolute'
+	}
+
+	anniu.onclick = function() {
+		if(po.style.left == '-6rem') {
+			po.style.position = 'absolute'
+			po.style.left = '0rem'
+			po.style.transition = 'all 1s'
+		} else {
+			po.style.position = 'absolute'
+			po.style.left = '-6rem'
+			po.style.transition = 'all 1s'
+		}
+	}
+	box.onclick = function() {
+		po.style.position = 'absolute'
+		po.style.left = '-6rem'
+		po.style.transition = 'all 1s'
+	}
+	xq.style.background = '#000'
+	xq.onclick = function() {
+		po.style.position = 'absolute'
+		po.style.left = '-6rem'
+		po.style.transition = 'all 1s'
+		one.style.display = 'block'
+		two.style.display = 'none'
+		xq.style.background = '#000'
+		tb.style.background = ''
+		tc.style.background = ''
+	}
+	tb.onclick = function() {
+		po.style.position = 'absolute'
+		po.style.left = '-6rem'
+		po.style.transition = 'all 1s'
+		one.style.display = 'none'
+		two.style.display = 'block'
+		tb.style.background = '#000'
+		xq.style.background = ''
+		tc.style.background = ''
+	}
+	tc.onclick = function() {
+		po.style.position = 'absolute'
+		po.style.left = '-6rem'
+		po.style.transition = 'all 1s'
+		one.style.display = 'none'
+		two.style.display = 'none'
+		tc.style.background = '#000'
+		xq.style.background = ''
+		tb.style.background = ''
+	}
+	
+</script>

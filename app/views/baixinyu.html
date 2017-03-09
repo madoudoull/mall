@@ -1,0 +1,60 @@
+<div class="b_box">
+   			
+   			<p>bugCenter v1.0</p>
+   		</div>
+   		<div class="Search1">
+   			<input type="text" ng-model='asd'/>
+   			<i class="glyphicon glyphicon-search"></i>
+   		</div>
+   		<ul id="oUl">
+   			<li class="haha">BUG列表</li>
+   			<li class="haha">图表</li>
+   			<li ng-click='Quit()'>退出</li>
+   		</ul>
+   		<div id="dabox">
+   			<div class="b_Tubiao" style="display: block;">
+   				<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+   				<!--<shoufenqing data='data1'></shoufenqing>-->
+   				<div class="panel panel-default" ng-repeat="x in data1 | filter:asd |f:s:size"><div class="panel-heading" role="tab" id="heading{{$index+1}}"><h4 class="panel-title"><p class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse{{$index+1}}" aria-expanded="false" aria-controls="collapse{{$index+1}}">{{x.summary}}({{x.frequency}})</p><span class="s_span"><span ng-class="{red:x.importance=='重要',green:x.importance=='中等',blue:x.importance=='一般',}">{{x.importance}}</span></span></h4></div><div id="collapse{{$index+1}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{$index+1}}"><div class="panel-body"><div class="s_p1"><x ng-bind-html="x.description|MyHtml"></x></div><span>{{x.date}}</span><br>发布人：<span>{{x.from}}</span><button id="s_but" ng-click="fn(x)" class="cccc">{{x.status}}</button></div></div></div>
+   			</div>
+   			<button ng-click='Fn()' ng-if="Lns">上一页<tton>
+			<button ng-click='Fn1()' ng-if="Lns1">下一页<tton>
+
+   			</div>
+   			
+	   		<div class="b_Tubiao" ng-controller="Bx">
+	   			<canvas id="pie" class="chart chart-bar"
+					  chart-data="data" chart-labels="labels" chart-options="options">
+				</canvas> 
+	   		</div>
+   		</div>
+<script>
+	document.documentElement.style.fontSize=innerWidth/16+'px'
+	onresize=function(){
+		document.documentElement.style.fontSize=innerWidth/16+'px'
+	}	
+		
+
+  	
+  	
+  	var da=document.getElementById('dabox')
+  	var oDiv=da.getElementsByClassName('b_Tubiao')
+  	var oUl=document.getElementById('oUl')
+  	var aLi=oUl.getElementsByClassName('haha')
+  	for(var i=0;i<aLi.length;i++){
+  		aLi[i].index=i
+  		aLi[i].onclick=function(){
+  			for(var i=0;i<aLi.length;i++){
+  				oDiv[i].style.display='none'
+  			}
+  			oDiv[this.index].style.display='block'
+  		}
+  	}
+  	
+  	
+	
+	
+	
+  		
+  
+</script>
